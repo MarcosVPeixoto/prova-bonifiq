@@ -22,7 +22,7 @@ namespace ProvaPub.Repositories
         public CustomerList ListCustomers(int page)
         {
             var count = _context.Products.Count();
-            var hasNext = count % (page * 10) > 0;
+            var hasNext = count - (page * 10) > 0;
             var skip = (page - 1) * 10;
             var customers = _context.Customers
                                    .Skip(skip)

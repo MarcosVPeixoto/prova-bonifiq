@@ -14,7 +14,7 @@ namespace ProvaPub.Repositories
         public ProductList ListProducts(int page)
         {
             var count = _context.Products.Count();
-            var hasNext = count % (page * 10) > 0;
+            var hasNext = count - (page * 10) > 0;
             var skip = (page - 1) * 10;
             var products = _context.Products
                                    .Skip(skip)

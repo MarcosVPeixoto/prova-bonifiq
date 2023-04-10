@@ -15,6 +15,7 @@ namespace ProvaPub.Services
 
         public CustomerList ListCustomers(int page)
         {
+            if (page < 1) page = 1;
             return _repository.ListCustomers(page);
         }
 
