@@ -51,7 +51,7 @@ namespace ProvaPub.Tests
         }
 
         [Fact]
-        public void CanPurchase_CustomerBoughtMoreThanOnce_ReturnsTrue()
+        public void CanPurchase_CustomerCanPurchase_ReturnsTrue()
         {
             _customerRepositoryMock.Setup(x => x.FindAsync(1).Result).Returns(new Customer { Id = 1, Name = "Jane Doe", Orders = new List<Order>() });            
             Func<Task<bool>> act = async () => await _customerService.CanPurchase(1, 2);
